@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once 'actions/db_connect.php';
 
 $sql = "SELECT * FROM proudct";
@@ -17,6 +18,8 @@ $tbody .= "<tr>
 }else {
     $tbody =  "<tr><td colspan='5'><center>No Data Available </center></td></tr>";
 }
+$res = mysqli_query($connect, "SELECT * FROM user WHERE id=" . $_SESSION['user']);
+$row = mysqli_fetch_array($res, MYSQLI_ASSOC);
 
 mysqli_close($connect)
 ?>
@@ -49,23 +52,33 @@ mysqli_close($connect)
         <div class="manageProduct w-75 mt-3">
             <div class='mb-3'>
                 <a href= "create.php"><button class='btn btn-primary'type="button" >Add product</button></a>
-                <a href= "login.php"><button class='btn btn-primary'type="button" >login</button></a>
             </div>
             <div class="container">
-            <p class='h2'>Products</p>
-            <table class='table table-hover shadow p-3 mb-5'>
-                <thead class='table-success'>
-                    <tr>
-                        <th scope="col">Picture</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">price</th>
-                        <th scope="col">dis</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?= $tbody;?>
-                </tbody>
-            </table>
+            <div class="row">
+                <div class="col-2">
+                        <img class="userImage" src="pic/<?php echo $row['picture']; ?>" alt="<?php echo $row['fname']; ?>">
+                        <p class="text-white">Hi <?php echo $row['fname']; ?></p>
+                </div>
+                    <a href="logout.php?logout">Sign Out</a>
+                    <a href="update.php?id=<?php echo $_SESSION['user'] ?>">Update your profile</a>
+                </div>
+                <div class="col-8 mt-2">
+                        <p class='h2'>Users</p>
+                        <table class='table table-hover shadow p-3 mb-5'>
+                        <thead class='table-success'>
+                            <tr>
+                                <th scope="col">Picture</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">price</th>
+                                <th scope="col">dis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?= $tbody;?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </body>
 </html>

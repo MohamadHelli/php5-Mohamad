@@ -31,7 +31,7 @@ if ($_POST) {
             </div>
             <div class="alert alert-<?=$class;?>" role="alert">
                 <p><?=$message;?></p>
-                <a href='../index.php'><button class="btn btn-success" type='button'>Home</button></a>
+                <a href='../dashboard.php'><button class="btn btn-success" type='button'>Home</button></a>
             </div>
         </div>
     </body>

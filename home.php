@@ -50,9 +50,6 @@ mysqli_close($connect)
     </head>
     <body>
         <div class="manageProduct w-75 mt-3">
-            <div class='mb-3'>
-                <a href= "create.php"><button class='btn btn-primary'type="button" >Add product</button></a>
-            </div>
             <div class="container">
             <div class="row">
                 <div class="col-2">
@@ -60,7 +57,7 @@ mysqli_close($connect)
                         <p class="text-white">Hi <?php echo $row['fname']; ?></p>
                 </div>
                     <a href="logout.php?logout">Sign Out</a>
-                    <a href="update.php?id=<?php echo $_SESSION['user'] ?>">Update your profile</a>
+                    <a href="update_user.php?id=<?php echo $_SESSION['user'] ?>">Update your profile</a>
                 </div>
                 <div class="col-8 mt-2">
                         <p class='h2'>Users</p>

@@ -12,10 +12,10 @@ if ($_POST) {
     $uploadError = '';
     $picture = file_upload($_FILES['picture']);//file_upload() called 
     if($picture->error===0){
-        ($_POST["picture"]=="avatar.png")?: unlink("../pic/$_POST[pic]");
-        $sql = "UPDATE user SET   fname = '$fname', lname = '$lname', email = $email, date_of_birth = '$date_of_birth',pass = '$pass' $ pic = '$picture->fileName'  WHERE id = {$id}";
+        ($_POST["picture"]=="avatar.png")?: unlink("../pic/$_POST[picture]");
+        $sql = "UPDATE user SET   fname = '$fname', lname = '$lname', email = '$email', date_of_birth = '$date_of_birth',pass = '$pass' $ pic = '$picture->fileName'  WHERE id = {$id}";
     }else{
-        $sql = "UPDATE user SET   fname = '$fname', lname = '$lname', email = $email, date_of_birth = '$date_of_birth',pass = '$pass' WHERE id = {$id}";
+        $sql = "UPDATE user SET   fname = '$fname', lname = '$lname', email = '$email', date_of_birth = '$date_of_birth',pass = '$pass' WHERE id = {$id}";
     }
     if (mysqli_query($connect, $sql) === TRUE) {
         $class = "success";

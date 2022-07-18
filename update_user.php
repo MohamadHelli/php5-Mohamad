@@ -60,7 +60,7 @@ if ($_GET['id']) {
                     </tr>
                     <tr>
                         <th>Password</th>
-                        <td><input class="form-control" type="password"  name="email" placeholder ="****" value="<?php echo $pass ?>"  /></td>
+                        <td><input class="form-control" type="pass"  name="pass" placeholder ="****" value="<?php echo $pass ?>"  /></td>
                     </tr>
                     <tr>
                         <th>Picture</th>
